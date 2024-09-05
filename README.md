@@ -15,6 +15,8 @@ a clean and organized structure.
 - **Custom User Model**: Includes a custom user model implementation for flexibility.
 - **Swagger API Documentation**: The project includes Swagger integration for easy-to-navigate, interactive API documentation. Developers can view and interact with the API endpoints directly through the Swagger UI.
 - **Environment Configuration**: Ready-to-use `.env` file setup for environment-specific settings.
+- **Deployment Mode**: Designed to support deployment modes, including **development (local)** and **production**. Each mode has its own set of configurations, including settings, requirements, Dockerfiles, and Docker Compose files. This setup allows for easy switching between different environments.
+
 
 ## Usage
 
