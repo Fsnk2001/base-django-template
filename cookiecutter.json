@@ -1,10 +1,8 @@
 {
-  "project_name": "My Django Project",
+  "project_name": "MyDjangoProject",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "description": "Behold My Django Project!",
   "author_name": "Your Name",
-  "django_version": "4.2.0",
-  "python_version": "3.12",
   "version": "1.0.0",
   "open_source_license": [
     "MIT",
