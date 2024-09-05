@@ -9,7 +9,11 @@ a clean and organized structure.
 - **Django and Python version**: Pre-configured with Django 4.2 and Python 3.12.
 - **Structured Project Layout**: Organized directory structure for easy maintenance and scalability.
 - **Docker Support**: Includes `Dockerfile` and `docker-compose` for easy development and deployment.
+- **Custom Base Model with Soft Deleting**: This project includes a custom base model that implements soft deleting functionality. Rather than permanently deleting records from the database, soft deleting marks them as deleted without removing them, allowing for easier data recovery or auditing.
+  - A `deleted_at` field is added to models to indicate if a record is soft deleted.
+  - Soft-deleted records excluded from queries by default, but you can explicitly include them for recovery purposes.
 - **Custom User Model**: Includes a custom user model implementation for flexibility.
+- **Swagger API Documentation**: The project includes Swagger integration for easy-to-navigate, interactive API documentation. Developers can view and interact with the API endpoints directly through the Swagger UI.
 - **Environment Configuration**: Ready-to-use `.env` file setup for environment-specific settings.
 
 ## Usage
