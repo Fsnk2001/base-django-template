@@ -29,8 +29,8 @@ SECURE_CONTENT_TYPE_NOSNIFF = env.bool('DJANGO_SECURE_CONTENT_TYPE_NOSNIFF', def
 # endregion --------------------------------------------------------------------
 
 # region LOGGING ---------------------------------------------------------------
+{%- if cookiecutter.use_sentry == 'n' %}
 
-{% if cookiecutter.use_sentry == 'n' -%}
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -66,7 +66,8 @@ LOGGING = {
         },
     },
 }
-{% else %}
+{%- else %}
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
@@ -116,16 +117,15 @@ integrations = [
     CeleryIntegration(),
     RedisIntegration(),
 ]
-{% else %}
+{%- else %}
 integrations = [sentry_logging, DjangoIntegration(), RedisIntegration()]
-{% endif -%}
-
+{%- endif %}
 sentry_sdk.init(
     dsn=SENTRY_DSN,
     integrations=integrations,
     environment=env('SENTRY_ENVIRONMENT', default='production'),
     traces_sample_rate=env.float('SENTRY_TRACES_SAMPLE_RATE', default=0.0),
 )
-{% endif %}
+{%- endif %}
 
 # endregion --------------------------------------------------------------------

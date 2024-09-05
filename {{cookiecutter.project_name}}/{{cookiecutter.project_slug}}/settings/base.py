@@ -192,7 +192,7 @@ REST_FRAMEWORK = {
         {%- if cookiecutter.use_jwt == 'n' %}
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-        {%- else -%}
+        {%- else %}
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         {%- endif %}
     ],
@@ -206,7 +206,7 @@ REST_FRAMEWORK = {
 SPECTACULAR_SETTINGS = {
     'TITLE': '{{cookiecutter.project_name}} API',
     'DESCRIPTION': 'Documentation of API endpoints of {{cookiecutter.project_name}}',
-    'VERSION': '1.0.0',
+    'VERSION': '{{cookiecutter.version}}',
 }
 
 # endregion --------------------------------------------------------------------
