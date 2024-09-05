@@ -1,0 +1,32 @@
+{
+  "project_name": "My Django Project",
+  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+  "description": "Behold My Django Project!",
+  "author_name": "Your Name",
+  "django_version": "4.2.0",
+  "python_version": "3.12",
+  "version": "1.0.0",
+  "open_source_license": [
+    "MIT",
+    "BSD",
+    "GPLv3",
+    "Apache Software License 2.0",
+    "Not open source"
+  ],
+  "username_type": [
+    "username",
+    "email"
+  ],
+  "use_docker": "n",
+  "postgresql_version": [
+    "16",
+    "15",
+    "14",
+    "13",
+    "12"
+  ],
+  "use_celery": "n",
+  "use_sentry": "n",
+  "debug": "n"
+}
+
