@@ -29,7 +29,7 @@ Before you begin, ensure you have met the following requirements:
 ### 1. Clone the Repository
 
 ```bash
-git clone {{your_repo_url}}
+git clone [your_repo_url]
 cd {{cookiecutter.project_name}}
 ```
 
