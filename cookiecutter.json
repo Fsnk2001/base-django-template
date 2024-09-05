@@ -13,13 +13,6 @@
     "Apache Software License 2.0",
     "Not open source"
   ],
-  "postgresql_version": [
-    "16",
-    "15",
-    "14",
-    "13",
-    "12"
-  ],
   "use_jwt": "y",
   "use_celery": "n",
   "use_sentry": "n",
