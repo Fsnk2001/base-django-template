@@ -48,6 +48,7 @@ services:
   celery-worker:
     build:
       context: .
+      dockerfile: docker/Dockerfile
     command: celery -A {{cookiecutter.project_slug}} worker --loglevel=info
     env_file:
       - .env
@@ -59,6 +60,7 @@ services:
   celery-beat:
     build:
       context: .
+      dockerfile: docker/Dockerfile
     command: celery -A {{cookiecutter.project_slug}} beat --loglevel=info
     env_file:
       - .env
