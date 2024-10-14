@@ -1,18 +1,14 @@
 from django.contrib.auth.models import BaseUserManager
 
+from .roles import UserRoles
+
 
 class UserManager(BaseUserManager):
-    def create_user(self, username, email=None, is_active=True, is_admin=False, password=None, **kwargs):
+    def create_user(self, username, password=None, **extra_fields):
         if not username:
-            raise ValueError('Users must have username')
+            raise ValueError("The Username field must be set.")
 
-        user = self.model(
-            username=username,
-            email=self.normalize_email(email.lower()),
-            is_active=is_active,
-            is_admin=is_admin,
-            **kwargs
-        )
+        user = self.model(username=username, **extra_fields)
         if password is not None:
             user.set_password(password)
         else:
@@ -23,16 +19,14 @@ class UserManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, username, email=None, password=None):
-        user = self.create(
-            username=username,
-            email=email,
-            is_active=True,
-            is_admin=True,
-            password=password,
-        )
+    def create_superuser(self, username, password=None, **extra_fields):
+        user = self.create_user(username, password, **extra_fields)
 
+        user.is_active = True
         user.is_superuser = True
+        user.full_clean()
         user.save(using=self._db)
+
+        user.add_role(UserRoles.ADMIN)
 
         return user
