@@ -1,6 +1,7 @@
 from collections import OrderedDict
 
 from rest_framework.pagination import LimitOffsetPagination as _LimitOffsetPagination
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
 
@@ -59,3 +60,9 @@ class LimitOffsetPagination(_LimitOffsetPagination):
             ('previous', self.get_previous_link()),
             ('results', data)
         ]))
+
+
+class CustomPagination(PageNumberPagination):
+    page_size_query_param = 'page_size'
+    max_page_size = 20
+    page_size = 10
