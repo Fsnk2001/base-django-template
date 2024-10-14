@@ -2,7 +2,6 @@ from rest_framework.response import Response as _Response
 
 
 class Response(_Response):
-
     def __init__(self, data=None, message='', meta=None, status=None, template_name=None, headers=None,
                  content_type=None, errors=None):
         if meta is None:
