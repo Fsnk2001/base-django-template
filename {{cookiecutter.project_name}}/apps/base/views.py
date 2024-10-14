@@ -1,4 +1,4 @@
-Afrom abc import ABC
+from abc import ABC
 
 from rest_framework.viewsets import GenericViewSet
 
